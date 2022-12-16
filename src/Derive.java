@@ -29,8 +29,13 @@ public class Derive {
       return String.valueOf(Integer.parseInt(function[0]) * Integer.parseInt(function[2])) + function[1]
             + (Integer.parseInt(function[2]) - 1);
    }
-//   public static String productRule (final String functionOne, final String functionTwo) {
-//      final String firstPart = powerRule(functionOne)
-//   }
+   public static String polynomialMultiplication (final String input1, final String input2) {
+      final String[] function1 = breakingFunctionUp(input1);
+      final String[] function2 = breakingFunctionUp(input2);
+      return String.valueOf(Integer.parseInt(function1[0]) + Integer.parseInt(function2[0])) + function1[1] + String.valueOf(Integer.parseInt(function1[2] + function2[2]));
+   }
+   public static String productRule (final String functionOne, final String functionTwo) {
+      return polynomialMultiplication(powerRule(functionOne), functionTwo) + polynomialMultiplication(powerRule(functionTwo), functionOne);
+   }
 }
 
